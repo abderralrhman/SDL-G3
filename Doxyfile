@@ -1,0 +1,66 @@
+# Doxygen configuration file for the ali project
+
+# General project information
+PROJECT_NAME           = "Ali Project - Game with Mini-map and Volume Menu"
+PROJECT_NUMBER         = "1.0"
+PROJECT_BRIEF          = "Platform game with mini-map, obstacles, mobile/fragile platforms, volume menu and audio controls"
+PROJECT_LOGO           =
+
+# Output directory
+OUTPUT_DIRECTORY       = ./docs
+
+# Create a subdirectory for LaTeX (no)
+GENERATE_LATEX         = NO
+
+# Documentation language
+OUTPUT_LANGUAGE        = English
+
+# Input files
+INPUT                  = ./ 
+RECURSIVE              = YES
+
+# Files to include
+FILE_PATTERNS          = *.c *.h
+
+# Exclude unnecessary files
+EXCLUDE                = ./menu ./minimap\ validation\ (copy) ./docs
+
+# Optimization for C language
+OPTIMIZE_OUTPUT_FOR_C  = YES
+
+# Extract everything (even undocumented elements)
+EXTRACT_ALL            = YES
+EXTRACT_STATIC         = YES
+EXTRACT_PRIVATE        = YES
+
+# Generate HTML documentation
+GENERATE_HTML          = YES
+HTML_OUTPUT            = html
+HTML_FILE_EXTENSION    = .html
+HTML_COLORSTYLE        = AUTO_LIGHT
+
+# Generate tree view
+GENERATE_TREEVIEW      = YES
+
+# Source browser
+SOURCE_BROWSER         = YES
+INLINE_SOURCES         = NO
+STRIP_CODE_COMMENTS    = YES
+
+# Graphics (requires Graphviz)
+HAVE_DOT               = YES
+CLASS_DIAGRAMS         = YES
+DOT_IMAGE_FORMAT       = png
+INTERACTIVE_SVG        = YES
+UML_LOOK               = YES
+
+# Source files
+INPUT                  = ./main.c ./function.c ./minimap.c ./header.h ./minimap.h
+
+# Images and assets
+IMAGE_PATH             = ./
+
+# The main file
+CREATE_SUBDIRS         = NO
+
+USE_MDFILE_AS_MAINPAGE = mainpage.dox

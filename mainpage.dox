@@ -1,0 +1,70 @@
+@mainpage Documentation of the Ali Project
+
+@section intro Introduction
+
+This project is a 2D platform game developed in C with the SDL2 library.
+
+It includes a volume menu, a mini-map, mobile/fragile platforms,
+
+obstacles, background animations, and audio controls.
+
+@section features Features
+
+    Platform Game: Move the character with the arrow keys
+
+    Mini-map: Reduced view of the level with pulsation
+
+    Platforms: Fixed, horizontally/vertically mobile, fragile
+
+    Obstacles: Block the passage
+
+    Volume Menu: Volume control, fullscreen, mute
+
+    Animations: Shake, flash, wave, red tint on collision
+
+    Two Levels: Switch levels with the SPACE key
+
+@section controls Controls
+
+    Arrow keys: Move the character
+
+    V: Open/Close the volume menu
+
+    SPACE: Change level
+
+    ESC: Exit the game
+
+    In the volume menu: Mouse click on buttons
+
+@section files Main files
+
+    main.c: Program entry point
+
+    function.c: Volume menu functions
+
+    minimap.c: Game functions (mini-map, platforms, obstacles)
+
+    header.h: Structures and prototypes
+
+    minimap.h: Game-specific prototypes
+
+@section build Compilation
+bash
+
+gcc -o game_complete main.c function.c minimap.c -lSDL2 -lSDL2_image -lSDL2_ttf -lSDL2_mixer -lm
+
+./game_complete
+text
+
+@section author Author
+
+Ali
+
+@section date Date
+
+2026-05-05
+
+@section version Version
+
+1.0
+*/

@@ -1,17 +1,23 @@
 CC = gcc
-CFLAGS = -Wall -Wextra
-LIBS = -lSDL2 -lSDL2_image -lSDL2_ttf -lSDL2_mixer
+CFLAGS = -Wall -O2 `sdl2-config --cflags`
+LIBS = `sdl2-config --libs` -lSDL2_image -lSDL2_ttf -lSDL2_mixer -lm
 
-OBJ = main.o background.o
+SRCS = main.c function.c minimap.c
+OBJS = $(SRCS:.c=.o)
+TARGET = game
 
-prog: $(OBJ)
-	$(CC) $(OBJ) -o prog $(LIBS)
+all: $(TARGET)
 
-main.o: main.c background.h
-	$(CC) $(CFLAGS) -c main.c
+$(TARGET): $(OBJS)
+	$(CC) $(OBJS) -o $(TARGET) $(LIBS)
 
-background.o: background.c background.h
-	$(CC) $(CFLAGS) -c background.c
+%.o: %.c
+	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	rm -f *.o prog
+	rm -f $(OBJS) $(TARGET)
+
+run: $(TARGET)
+	./$(TARGET)
+
+.PHONY: all clean run
