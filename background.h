@@ -8,12 +8,31 @@
 
 #define WINDOW_W 1280
 #define WINDOW_H 720
+
 #define LEVEL1 1
 #define LEVEL2 2
+
 #define PLATFORM_FIXED 0
 #define PLATFORM_MOBILE 1
 #define PLATFORM_DESTRUCTIBLE 2
+
 #define MAX_PLATFORMS 8
+#define MAX_STAIRS 10
+
+#define LVL1_PLAYER_START_X 10
+#define LVL1_PLAYER_START_Y 820
+
+#define LVL1_GROUND_Y 880
+#define LVL1_FLOOR1_Y 581
+#define LVL1_FLOOR2_Y 326
+#define LVL1_FLOOR3_Y 80
+
+#define LVL1_END_X 3999
+#define LVL1_TRANSFER_Y 80
+
+#define LVL2_PLAYER_START_X 60
+#define LVL2_PLAYER_START_Y 1915
+#define LVL2_GROUND_Y 1985
 
 typedef struct
 {
@@ -38,32 +57,55 @@ typedef struct
     SDL_Texture *destruct0;
     SDL_Texture *destruct1;
     SDL_Texture *destruct2;
+
     int level1W;
     int level1H;
     int level2W;
     int level2H;
+
     int currentLevel;
     int singleMode;
     int showGuide;
     int guideSingle;
     int guideMulti;
+
     unsigned int guideSingleTimer;
     unsigned int guideMultiTimer;
     unsigned int startTime1;
     unsigned int startTime2;
     unsigned int elapsed1;
     unsigned int elapsed2;
+
     TTF_Font *font;
     Mix_Music *music1;
     Mix_Music *music2;
+
     Platform p[MAX_PLATFORMS];
     int nbPlatform;
+
+    SDL_Rect stairs[MAX_STAIRS];
+    int stairCount;
+
     SDL_Rect cam1;
     SDL_Rect cam2;
     SDL_Rect player1;
     SDL_Rect player2;
     SDL_Rect zone12;
     SDL_Rect zone21;
+
+    int vy1;
+    int vy2;
+    int onGround1;
+    int onGround2;
+
+    int floorY;
+
+    int spawn1x;
+    int spawn1y;
+
+    int spawn2x;
+    int spawn2y;
+
 } Background;
 
 void initBackground(Background *b, SDL_Renderer *r);
